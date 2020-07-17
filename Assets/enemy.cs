@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour {
+public class enemy : MonoBehaviour {
+	public float speed = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -11,8 +12,8 @@ public class bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.Translate(Vector3.up * 4 * Time.deltaTime);
-		if(this.transform.position.y > 4)
+		this.transform.Translate(Vector3.down * speed * Time.deltaTime);
+		if(this.transform.position.y < -4)
 		{
 			Destroy(gameObject);
 		}
@@ -21,7 +22,7 @@ public class bullet : MonoBehaviour {
 	void OnTriggerEnter2D ( Collider2D box ) 
 	{
 		// print (box.gameObject.name);
-		if(box.gameObject.name.Substring(0, 5)=="enemy")
+		if(box.gameObject.name.Substring(0, 6)=="bullet")
 		{
 			Destroy(gameObject);
 		}
