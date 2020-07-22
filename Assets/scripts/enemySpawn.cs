@@ -26,7 +26,7 @@ public class enemySpawn : MonoBehaviour {
 			{
 				timers[i] = interval[i];
 
-				Vector3 initPos = new Vector3(Random.Range(-3f, 3f),5,0);
+				Vector3 initPos = new Vector3(Random.Range(-2.5f, 2.5f),5,0);
 				// print(initPos);
 	            Instantiate(enemys[i],initPos,Quaternion.identity);
 			}
